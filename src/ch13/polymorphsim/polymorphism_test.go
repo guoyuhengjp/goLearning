@@ -29,6 +29,7 @@ func (p *JavaProgrammer) WriteHelloWorld() Code{
 	return "System.out.Println(\"hello world\")"
 }
 
+//interface只能对应指针而不是实例
 func writeFirstProgrammer(p Programmer){
 	fmt.Printf("%T %v\n",p,p.WriteHelloWorld())
 }
