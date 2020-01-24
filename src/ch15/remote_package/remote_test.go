@@ -8,3 +8,6 @@ func TestConcurrentMap(t *testing.T) {
 	m.Set(cm.StrKey("key"), 10)
 	t.Log(m.Get(cm.StrKey("key")))
 }
+
+
+
