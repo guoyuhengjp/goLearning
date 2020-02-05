@@ -13,7 +13,7 @@ func otherTask(){
 	fmt.Println("---otherTask---Task is Done")
 }
 func service() string{
-	time.Sleep(time.Millisecond * 500)
+	time.Sleep(time.Millisecond * 50)
 	return "Done"
 }
 
@@ -32,8 +32,11 @@ func AsyncService() chan string{
 
 
 func TestSelect(t *testing.T) {
-	ret := AsyncService()
-	otherTask()
-	fmt.Println(<-ret)
+	select {
+		case ret := <-AsyncService():
+			t.Log(ret)
+		case <-time.After(time.Millisecond*100):
+			t.Error("time out")
+	}
 }
 
