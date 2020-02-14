@@ -1,1 +1,6 @@
-package unit_test
+package testing
+
+
+func square(op int) int {
+	return op * op
+}
