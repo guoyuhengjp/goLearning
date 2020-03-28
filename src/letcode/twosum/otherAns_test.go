@@ -10,7 +10,6 @@ func twoSum1(nums []int, target int)[]int{
 
 	for i, v := range nums {
 		j, ok := lookup[-v]
-		fmt.Println(ok)
 		lookup[v - target] = i
 		if ok {
 			return []int{j, i}
