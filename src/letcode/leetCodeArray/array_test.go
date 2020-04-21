@@ -70,3 +70,36 @@ func TestPivotIndex(t *testing.T) {
 	fmt.Println(result)
 }
 
+func dominantIndex(nums []int) int {
+	result := 0
+	subRes := 0
+	index := -1
+	for i:=0; i< len(nums);i++  {
+		if nums[i] >= result {
+			result = nums[i]
+			index = i
+		}
+	}
+
+	for j:=0;j<len(nums) ;j++  {
+		if nums[j] >= subRes && nums[j] !=result  {
+			subRes = nums[j]
+		}
+	}
+	if subRes * 2 <= result{
+		return index
+	}else {
+		return -1
+	}
+
+}
+
+
+func TestDominantIndex(t *testing.T) {
+
+	 test := []int{3,1,1,0,6,2,3,1,1,1,}
+
+	result := dominantIndex(test)
+
+	println(result)
+}
